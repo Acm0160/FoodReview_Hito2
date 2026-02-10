@@ -61,6 +61,68 @@
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- UBICACIÓN -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar ubicación en el mapa"
+            android:textAllCaps="false"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvLocationInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubicación: (no seleccionada)"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- FOTO -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agregar foto"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <ImageView
+            android:id="@+id/ivPhotoPreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Foto del restaurante"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- AUDIO -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grabar nota de voz"
+            android:textAllCaps="false"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parar grabación"
+            android:textAllCaps="false"
+            android:enabled="false"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reproducir audio"
+            android:textAllCaps="false"
+            android:enabled="false"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- RESEÑA -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -34,7 +34,11 @@ android {
 }
 
 dependencies {
+    //Material
     implementation("com.google.android.material:material:1.12.0")
+    // Maps + Location
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

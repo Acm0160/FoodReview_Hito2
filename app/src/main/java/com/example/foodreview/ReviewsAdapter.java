@@ -1,9 +1,11 @@
 package com.example.foodreview;
 
 import android.app.AlertDialog;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -45,9 +47,18 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull VH h, int position) {
         Review r = data.get(position);
+
         h.tvRestaurant.setText(r.getRestaurantName());
         h.rbRating.setRating(r.getRating());
         h.tvCommentPreview.setText(r.getComment());
+
+        // Miniatura foto
+        if (r.getPhotoUri() != null && !r.getPhotoUri().trim().isEmpty()) {
+            h.ivThumb.setVisibility(View.VISIBLE);
+            h.ivThumb.setImageURI(Uri.parse(r.getPhotoUri()));
+        } else {
+            h.ivThumb.setVisibility(View.GONE);
+        }
 
         h.btnEdit.setOnClickListener(v -> listener.onEdit(r));
 
@@ -60,7 +71,6 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.VH> {
                     .show();
         });
 
-        // Tap en la card también edita (opcional)
         h.itemView.setOnClickListener(v -> listener.onEdit(r));
     }
 
@@ -70,12 +80,14 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.VH> {
     }
 
     static class VH extends RecyclerView.ViewHolder {
+        ImageView ivThumb;
         TextView tvRestaurant, tvCommentPreview;
         RatingBar rbRating;
         MaterialButton btnEdit, btnDelete;
 
         VH(@NonNull View itemView) {
             super(itemView);
+            ivThumb = itemView.findViewById(R.id.ivThumb);
             tvRestaurant = itemView.findViewById(R.id.tvRestaurant);
             rbRating = itemView.findViewById(R.id.rbRating);
             tvCommentPreview = itemView.findViewById(R.id.tvCommentPreview);
