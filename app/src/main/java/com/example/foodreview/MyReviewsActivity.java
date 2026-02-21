@@ -52,6 +52,12 @@ public class MyReviewsActivity extends AppCompatActivity {
             Intent i = new Intent(MyReviewsActivity.this, AddEditReviewActivity.class);
             startActivity(i);
         });
+
+        FloatingActionButton fabChat = findViewById(R.id.Chat);
+        fabChat.setOnClickListener(v -> {
+            Intent intent = new Intent(MyReviewsActivity.this, ChatActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

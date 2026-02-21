@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Permisos Hito 2 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Permisos Hito 3 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodReview">
-
-        <!-- FileProvider para cámara -->
+        <activity
+            android:name=".MensajeSoporte"
+            android:exported="false" />
+        <activity
+            android:name=".MisMensajes"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" /> <!-- FileProvider para cámara -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -23,38 +31,28 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!-- Login inicial -->
+        </provider> <!-- Login inicial -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MyReviewsActivity"
             android:exported="false" />
-
         <activity
             android:name=".AddEditReviewActivity"
             android:exported="false" />
-
         <activity
             android:name=".PickLocationActivity"
-            android:exported="false" />
-
-        <!-- API Key de Google Maps (pon tu key aquí) -->
+            android:exported="false" /> <!-- API Key de Google Maps (pon tu key aquí) -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCg3ZFN2eG7MNJRHaz3ElQLhziNBFgdYnk" />
-
     </application>
 
 </manifest>
-
-
-
